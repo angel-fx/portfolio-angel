@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel — Portfolio Graphique</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,300&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="custom-cursor"></div>
+
+    <header>
+        <div class="logo-container">
+            <img src="ANGEL SIGN.png" alt="Angel Logo" class="nav-logo">
+        </div>
+        <nav>
+            <a href="#works" class="nav-link">Projets</a>
+            <a href="#about" class="nav-link">À Propos</a>
+            <a href="#contact" class="nav-btn">Me Contacter</a>
+        </nav>
+    </header>
+
+    <main>
+<!-- SECTION HERO : CONFIGURATION EXACTE -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-tagline">GRAPHIC DESIGNER</span>
+        <h1 class="reveal-text">ANGEL <br><span class="gradient-text">PRODUCTION</span></h1>
+        <p class="fade-in-text">Bienvenue sur mon portfolio</p>
+        <div class="btn-wrap">
+            <a href="#works" class="magnetic-btn">Explorer le Portfolio</a>
+        </div>
+    </div>
+    
+    <!-- Le grand conteneur arrondi de image_ea20bc.png -->
+    <div class="hero-image-container">
+        <div class="hero-image">
+            <!-- Ton logo graffiti est maintenant placé ici, centré à l'intérieur -->
+            <img src="ANGEL SIGN.png" alt="Angel Signature" class="hero-embedded-logo">
+        </div>
+        <div class="hero-badge">ART DIRECTION ©2026</div>
+    </div>
+</section>
+
+<!-- SECTION PORTFOLIO (BENTO GRID CLIQUABLE) -->
+<section id="works" class="projets-section">
+    <div class="section-header">
+        <span class="sub-title">SÉLECTION DE TRAVAUX</span>
+        <h2 class="section-title">Créations Graphiques</h2>
+    </div>
+    
+    <div class="bento-grid">
+        <!-- Projet 1 : Brand Identity / Poster (Redirige vers brand-identity.html) -->
+        <a href="brand-identity.html" class="bento-item large animate-card">
+            <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200')"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <span class="category">Brand Identity / Poster</span>
+                <h3>Aura™ — Expérimentation Visuelle Abstract</h3>
+            </div>
+        </a>
+        
+        <!-- Projet 2 : Direction Artistique (Redirige vers direction-artistique.html) -->
+        <a href="direction-artistique.html" class="bento-item animate-card">
+            <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800')"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <span class="category">Direction Artistique</span>
+                <h3>Neo-Brutalisme Éditorial</h3>
+            </div>
+        </a>
+        
+        <!-- Projet 3 : Typography Design (Redirige vers typography.html) -->
+        <a href="typography.html" class="bento-item animate-card">
+            <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800')"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <span class="category">Typography Design</span>
+                <h3>Kinetic Type & Posters</h3>
+            </div>
+        </a>
+
+        <!-- Projet 4 : Packaging (Redirige vers packaging.html) -->
+        <a href="packaging.html" class="bento-item animate-card">
+            <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800')"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <span class="category">Packaging</span>
+                <h3>Outlaw™ — Premium Brew Lab</h3>
+            </div>
+        </a>
+
+        <!-- Projet 5 : Digital Art (Redirige vers digital-art.html) -->
+        <a href="digital-art.html" class="bento-item large animate-card">
+            <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200')"></div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <span class="category">Digital Art</span>
+                <h3>Textures Synthétiques & Couleurs 3D</h3>
+            </div>
+        </a>
+    </div>
+</section>>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-box">
+                <h2>Un concept en tête ?</h2>
+                <p>Collaborons ensemble pour façonner vos idées.</p>
+                <a href="mailto:hello@angeldesign.com" class="cta-contact magnetic-btn">contact@angeldesign.com</a>
+            </div>
+            <footer>
+                <p>© 2026 ANGEL PRODUCTION — Tous droits réservés</p>
+            </footer>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

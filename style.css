@@ -1,0 +1,620 @@
+/* ==========================================================================
+   RESET & CONFIGURATION DE BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #0b0a07; /* Fond ultra-sombre chaud subtilement teinté */
+    color: #f5f4f0; /* Blanc cassé doux pour les yeux */
+    overflow-x: hidden;
+}
+
+/* Sélection de texte personnalisée */
+::selection {
+    background: #e6a100;
+    color: #0b0a07;
+}
+
+/* ==========================================================================
+   CURSEUR FLUIDE MODERNE
+   ========================================================================== */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffb703;
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                background-color 0.3s, border-color 0.3s;
+}
+
+/* ==========================================================================
+   BARRE DE NAVIGATION PREMIUM
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 183, 3, 0.05);
+}
+
+.logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    color: #f5f4f0;
+}
+
+.logo .dot {
+    color: #fb8500;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #a09e9a;
+    text-decoration: none;
+    margin-left: 35px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ffb703;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover {
+    color: #ffb703;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #ffb703, #fb8500);
+    color: #0b0a07 !important;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    margin-left: 35px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(251, 133, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(251, 133, 0, 0.4);
+}
+
+.nav-logo {
+    height: 40px; /* Taille discrète et élégante dans le menu */
+    width: auto;
+    filter: invert(1) brightness(1.2); /* Transforme le noir en blanc éclatant */
+    mix-blend-mode: screen;
+}
+
+/* Style pour le gros logo du milieu */
+.hero-logo-wrapper {
+    margin-bottom: 25px;
+    max-width: 550px; /* Évite qu'il soit trop gigantesque */
+}
+
+.hero-main-logo {
+    width: 100%;
+    height: auto;
+    /* On lui applique un dégradé orange/jaune à travers un filtre si on veut, 
+       ou on le laisse en blanc pur ultra-clean. Ici en blanc pur pour un effet Streetwear/Studio : */
+    filter: invert(1) drop-shadow(0px 0px 20px rgba(255, 183, 3, 0.3));
+    mix-blend-mode: screen;
+}
+
+/* ==========================================================================
+   SECTION HERO (ACCUEIL)
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    padding: 0 8%;
+    padding-top: 80px;
+    gap: 40px;
+}
+
+.hero-tagline {
+    display: inline-block;
+    color: #ffb703;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.hero-tagline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffb703'%3E%3Cpath d='M12 2l2.4 7.3h7.6l-6.2 4.5 2.4 7.3-6.2-4.5-6.2 4.5 2.4-7.3-6.2-4.5h7.6z'/%3E%3C/svg%3E") no-repeat center;
+    transform: translateY(-50%);
+}
+
+.hero-content h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.0;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #ffb703 0%, #ff8200 50%, #e65c00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    color: #b5b2ab;
+    font-size: 1.15rem;
+    max-width: 500px;
+    line-height: 1.6;
+    margin-bottom: 45px;
+    font-weight: 300;
+}
+
+.magnetic-btn {
+    display: inline-block;
+    padding: 20px 40px;
+    border: 1px solid rgba(255, 183, 3, 0.3);
+    color: #f5f4f0;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: rgba(255, 183, 3, 0.02);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 60vh;
+    max-height: 550px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    /* Bordure jaune/orange fine identique à image_ea20bc.png */
+    border: 1px solid rgba(255, 183, 3, 0.2); 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    background-color: #0b0a07; /* Fond noir accordé */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Style du logo ANGEL SIGN.png imbriqué dans le cadre */
+.hero-embedded-logo {
+    width: 85%; /* S'adapte proprement sans toucher les bords du cadre */
+    height: auto;
+    max-height: 80%;
+    object-fit: contain;
+    /* Filtre pour passer le graffiti noir en blanc éclatant */
+    filter: invert(1) brightness(1.2) drop-shadow(0px 0px 25px rgba(255, 183, 3, 0.25));
+    mix-blend-mode: screen;
+}
+
+.hero-badge {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background: rgba(11, 10, 7, 0.8);
+    backdrop-filter: blur(5px);
+    /* Bordure et texte assortis au badge de image_ea20bc.png */
+    border: 1px solid #ffb703;
+    color: #ffb703;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   SECTION CRÉATIONS (BENTO GRID)
+   ========================================================================= */
+.projets-section {
+    padding: 140px 8% 80px 8%;
+}
+
+.sub-title {
+    color: #ffb703;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    grid-auto-rows: 350px;
+}
+
+.bento-item {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    background-color: #14120e;
+}
+
+.bento-item.large {
+    grid-column: span 2;
+}
+
+.card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.4) contrast(1.1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 10, 7, 0.95) 0%, rgba(11, 10, 7, 0.4) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+    z-index: 2;
+    transform: translateY(10px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-content .category {
+    font-size: 0.8rem;
+    color: #ffb703;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.card-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #f5f4f0;
+    line-height: 1.2;
+}
+
+/* Événements au survol des cartes */
+.bento-item:hover .card-bg {
+    transform: scale(1.04);
+    filter: saturate(1) contrast(1.05);
+}
+
+.bento-item:hover .card-content {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   SECTION À PROPOS
+   ========================================================================== */
+.about-section {
+    padding: 100px 8%;
+    background: linear-gradient(180deg, #0b0a07 0%, #14120e 100%);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    border-top: 1px solid rgba(255, 183, 3, 0.1);
+    padding-top: 60px;
+}
+
+.about-text h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.about-text p {
+    color: #b5b2ab;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.about-skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skill-row {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f5f4f0;
+    transition: padding-left 0.3s, color 0.3s;
+}
+
+.skill-row:hover {
+    padding-left: 15px;
+    color: #ffb703;
+}
+
+/* ==========================================================================
+   SECTION CONTACT & FOOTER
+   ========================================================================== */
+.contact-section {
+    padding: 120px 8% 40px 8%;
+    text-align: center;
+}
+
+.contact-box {
+    max-width: 800px;
+    margin: 0 auto 120px auto;
+    background: #14120e;
+    border: 1px solid rgba(255, 183, 3, 0.1);
+    padding: 80px 40px;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+
+.contact-box h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.contact-box p {
+    color: #b5b2ab;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.cta-contact {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem !important;
+    color: #ffb703 !important;
+    border: none !important;
+    background: transparent !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-weight: 800;
+    transition: color 0.3s, transform 0.3s !important;
+}
+
+.cta-contact:hover {
+    color: #fb8500 !important;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 40px;
+    color: #66635f;
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 140px;
+    }
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-image-container {
+        height: 45vh;
+    }
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bento-item.large {
+        grid-column: span 2;
+    }
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 3.5rem; }
+    .section-title { font-size: 2.5rem; }
+    .contact-box h2 { font-size: 2.2rem; }
+    .cta-contact { font-size: 1.3rem !important; }
+    .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 300px; }
+    .bento-item.large { grid-column: span 1; }
+    header nav { display: none; }
+}
+
+.bento-item {
+    text-decoration: none;
+    display: block; /* Indispensable pour que toute la surface reste une boîte cliquable */
+}
+
+/* ==========================================================================
+   STYLE DES PAGES DE PROJET DÉDIÉES
+   ========================================================================== */
+.project-page {
+    padding-top: 160px;
+    min-height: 100vh;
+}
+
+.project-hero {
+    text-align: center;
+    padding: 60px 8%;
+}
+
+.project-hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-top: 10px;
+    letter-spacing: -2px;
+}
+
+.project-details {
+    padding: 60px 8%;
+    background-color: #14120e;
+    border-top: 1px solid rgba(255, 183, 3, 0.1);
+    border-bottom: 1px solid rgba(255, 183, 3, 0.1);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    color: #ffb703;
+    margin-bottom: 15px;
+}
+
+.info-block p {
+    color: #b5b2ab;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.meta-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    border-left: 1px solid rgba(255, 183, 3, 0.2);
+    padding-left: 40px;
+    color: #b5b2ab;
+}
+
+.meta-block strong {
+    color: #ffb703;
+}
+
+.project-gallery {
+    padding: 80px 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 183, 3, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .project-hero h1 { font-size: 2.8rem; }
+    .details-grid { grid-template-columns: 1fr; gap: 30px; }
+    .meta-block { border-left: none; border-top: 1px solid rgba(255, 183, 3, 0.2); padding-left: 0; padding-top: 20px; }
+}
